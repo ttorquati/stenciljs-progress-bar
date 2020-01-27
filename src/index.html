@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0">
+  <title>Stencil Component Starter</title>
+
+  <script type="module" src="/build/pp-weekly.esm.js"></script>
+  <script nomodule src="/build/pp-weekly.js"></script>
+
+</head>
+<body>
+
+  <progress-bar><span slot="start-message">Pagamento</span><span slot="end-message">concluído!</span></progress-bar>
+
+  <script>
+    (function() {
+      const progressBar = document.querySelector('progress-bar')
+      
+      let progress = 0;
+
+      const progressInterval = setInterval(() => {
+        progress += 1;
+
+        if (progress <= 100) {
+          progressBar.progress = progress;
+        } else {
+          clearInterval(progressInterval);
+        }
+      }, 100);
+    })();
+  </script>
+
+</body>
+</html>
